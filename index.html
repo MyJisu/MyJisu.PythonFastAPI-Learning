@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空创作者 | 个人作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            color: #fff;
+            overflow-x: hidden;
+        }
+        /* 星空动态背景 */
+        .star-bg {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(#050118, #100830, #1c104b);
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%,100% {opacity: 0.2; transform: scale(0.8);}
+            50% {opacity: 1; transform: scale(1.2);}
+        }
+        /* 导航栏 */
+        nav {
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            background: linear-gradient(90deg,#80bfff,#e8a0ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-link a {
+            color: #eee;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .nav-link a:hover {
+            color: #94ccff;
+        }
+        /* 首页横幅 */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 18px;
+            background: linear-gradient(90deg,#a1d1ff,#f0b8ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #c8d6f5;
+            max-width: 650px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 24px;
+        }
+        .btn {
+            padding: 14px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg,#428bff,#b06aff);
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px #7048d970;
+        }
+        .btn-outline {
+            border: 1px solid #82b8ff;
+            color: #82b8ff;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(130, 184, 255, 0.12);
+            transform: translateY(-4px);
+        }
+        /* 作品板块 */
+        .works {
+            padding: 100px 6%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        .section-title span {
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg,#428bff,#b06aff);
+            margin: 0 auto;
+        }
+        .card-wrap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+            gap: 32px;
+        }
+        .work-card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .work-card:hover {
+            transform: translateY(-10px);
+            border-color: #82b8ff50;
+            box-shadow: 0 10px 35px #428bff2b;
+        }
+        .card-content {
+            padding: 26px;
+        }
+        .card-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .card-content p {
+            color: #b9caf0;
+            line-height: 1.7;
+        }
+        /* 页脚 */
+        footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #99a9d0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 星空背景容器 -->
+    <div class="star-bg" id="starBox"></div>
+
+    <!-- 导航 -->
+    <nav>
+        <div class="logo">StarCreator</div>
+        <div class="nav-link">
+            <a href="#home">首页</a>
+            <a href="#works">作品集</a>
+            <a href="#about">关于我</a>
+            <a href="#contact">联系</a>
+        </div>
+    </nav>
+
+    <!-- 首页主视觉 -->
+    <section class="hero" id="home">
+        <h1>奔赴属于你的璀璨星河</h1>
+        <p>专注前端开发、视觉设计与创意编程，用代码搭建浪漫的数字世界，每一份作品都藏着独有的星光与温柔。</p>
+        <div class="btn-group">
+            <a href="#works" class="btn btn-primary">浏览作品集</a>
+            <a href="#contact" class="btn btn-outline">联系我</a>
+        </div>
+    </section>
+
+    <!-- 作品展示区 -->
+    <section class="works" id="works">
+        <div class="section-title">
+            <h2>精选作品</h2>
+            <span></span>
+        </div>
+        <div class="card-wrap">
+            <div class="work-card">
+                <div class="card-content">
+                    <h3>星空主题官网</h3>
+                    <p>动态星空背景、毛玻璃导航、响应式布局，纯HTML+CSS实现无框架，适合个人展示站。</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-content">
+                    <h3>FastAPI后端接口</h3>
+                    <p>异步Web服务，文件读取、HTML页面渲染、RESTful标准接口，轻量化高性能服务。</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-content">
+                    <h3>数据可视化卡片</h3>
+                    <p>渐变色彩+悬浮动效网格卡片，适配手机/电脑，简洁商务展示模板。</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-content">
+                    <h3>动画交互页面</h3>
+                    <p>闪烁星空、上浮卡片、渐变按钮过渡，全套CSS原生动画，流畅无卡顿。</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-content">
+                    <h3>静态文件管理系统</h3>
+                    <p>读取本地HTML文件返回网页，分离前后端代码，便于维护修改页面。</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-content">
+                    <h3>极简暗黑模板</h3>
+                    <p>低饱和度暗色主题，柔和渐变配色，护眼风格，适合长期浏览的展示网站。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <p>StarCreator 星空作品集 © 2026 | 前端创意开发 Demo</p>
+    </footer>
+
+    <!-- JS生成随机星星 -->
+    <script>
+        const starBox = document.getElementById("starBox");
+        // 生成80颗随机星星
+        for(let i=0; i<80; i++){
+            const star = document.createElement("div");
+            star.classList.add("star");
+            // 随机位置、大小、动画延迟
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + "px";
+            star.style.height = size + "px";
+            star.style.left = Math.random() * 100 + "%";
+            star.style.top = Math.random() * 100 + "%";
+            star.style.animationDelay = Math.random() * 4 + "s";
+            starBox.appendChild(star);
+        }
+    </script>
+</body>
+</html>
