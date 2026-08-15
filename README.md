@@ -79,6 +79,8 @@ FastAPI_Learning1/
 ├── test_main.http    # IDEA HTTP Client 接口测试脚本
 ├── files/
 │   └── MC.mp4        # 第 2 天 FileResponse 示例返回的视频（大文件，已加入 .gitignore）
+├── toutiao_project/  # FastAPI 新闻后端：用户、新闻、收藏、历史
+├── xwzx-news/        # Vue 3 + Vite 新闻前端：首页、详情、AI 问答
 ├── .venv/            # 虚拟环境（已加入 .gitignore）
 └── README.md         # 学习笔记（本文件）
 ```
