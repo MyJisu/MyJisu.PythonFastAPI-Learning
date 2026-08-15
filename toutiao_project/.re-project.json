@@ -1,0 +1,6 @@
+{
+  "backend": ".",
+  "frontend": "../xwzx-news",
+  "backendPort": 8000,
+  "frontendPort": 5173
+}
